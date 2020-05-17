@@ -9,6 +9,14 @@ public class Program {
         ComplexNumber num3 = new ComplexNumber(2.5, -5.1);
         ComplexNumber num4 = new ComplexNumber(0.0, 0.0012);
 
+        assert (num1.isReal() == true);
+        assert (num1.isImaginary() == true);
+
+        ComplexNumber num5 = num1.getConjugate();
+
+        assert (num5.real == 0.0);
+        assert (num5.imaginary == 0.0);
+
         assert (num1.real == 0.0);
         assert (num1.imaginary == 0.0);
 

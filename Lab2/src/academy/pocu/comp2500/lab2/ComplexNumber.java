@@ -2,8 +2,8 @@ package academy.pocu.comp2500.lab2;
 
 public class ComplexNumber {
 
-    double real;
-    double imaginary;
+    public double real;
+    public double imaginary;
 
     public ComplexNumber() {
         this(0.0, 0.0);
@@ -45,6 +45,10 @@ public class ComplexNumber {
     public ComplexNumber divide(ComplexNumber b) {
         ComplexNumber mul = this.multiply(new ComplexNumber(b.real, -b.imaginary));
         double denominator = (b.real * b.real) + (b.imaginary * b.imaginary);
+
+        if (denominator == 0.0) {
+            return new ComplexNumber(0, 0);
+        }
 
         return new ComplexNumber(mul.real / denominator, mul.imaginary / denominator);
     }
