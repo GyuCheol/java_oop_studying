@@ -22,13 +22,13 @@ public class App {
         registry.registerReactionRemover("Post", "removeReaction");
         registry.registerCommentListGetter("Post", "getCommentList");
 
-        registry.registerCommentUpdater("Comment", "setBody");
+        registry.registerCommentUpdater("Comment", "updateComment");
         registry.registerCommentUpvoter("Comment", "upVote");
         registry.registerCommentDownvoter("Comment", "downVote");
         registry.registerSubcommentAdder("Comment", "addComment");
         registry.registerSubCommentListGetter("Comment", "getCommentList");
 
-        registry.registerSubcommentUpdater("Comment", "setBody");
+        registry.registerSubcommentUpdater("Comment", "updateComment");
         registry.registerSubcommentUpvoter("Comment", "upVote");
         registry.registerSubcommentDownvoter("Comment", "downVote");
     }

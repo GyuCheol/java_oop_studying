@@ -13,31 +13,36 @@ public class Program {
 
         Blog blog = new Blog();
 
-        User user = new User(1, "ABC");
+        User user1 = new User(1, "ABC");
+        User user2 = new User(2, "ABC");
+
+        Post post1 = new Post(1, user1, "이것은1", "포스트");
+        Post post2 = new Post(2,user2, "이것은2", "포스트2");
 
         // post 2개 추가
-        blog.addPost(new Post(1, user, "이것은1", "포스트"));
+        blog.addPost(post1);
         Thread.sleep(100);
-        blog.addPost(new Post(2,user, "이것은2", "포스트2"));
+        blog.addPost(post2);
 
-        Comment comment1 = new Comment(1, user, "hi1");
-        Comment comment2 = new Comment(2, user, "hi2");
-        Comment comment3 = new Comment(3, user, "hi3");
-        Comment comment4 = new Comment(3, user, "hi4");
+        Comment comment1 = new Comment(1, user1, "hi1");
+        Comment comment2 = new Comment(2, user1, "hi2");
+        Comment comment3 = new Comment(3, user2, "hi3");
+        Comment comment4 = new Comment(3, user2, "hi4");
 
         //comment2.upVote(user);
         //comment1.downVote(user);
-        comment4.upVote(user);
+        comment4.upVote(user1);
 
-        blog.getPostList().get(0).addComment(comment1);
-        blog.getPostList().get(0).addComment(comment2);
+        blog.setAuthorFilter(user1);
+        post1.addComment(comment1);
+        post1.addComment(comment2);
 
-        blog.getPostList().get(0).getCommentList().get(0).addComment(comment3);
-        blog.getPostList().get(0).getCommentList().get(0).addComment(comment4);
+        comment1.addComment(comment3);
+        comment1.addComment(comment4);
 
-        blog.getPostList().get(0).addTag("ABC");
-        blog.getPostList().get(0).addTag("ABD");
-        blog.getPostList().get(1).addTag("BCC");
+        post1.addTag("ABC");
+        post1.addTag("ABD");
+        post2.addTag("BCC");
 
         for (Post post : blog.getPostList()) {
             System.out.println(post.getTitle());

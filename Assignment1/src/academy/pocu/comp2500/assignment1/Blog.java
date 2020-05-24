@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Blog {
 
-    private String filteringAuthorName;
+    private User filteringUser;
     private ArrayList<String> filteringTag= new ArrayList<>();
     private ArrayList<Post> postList = new ArrayList<>();
     private PostOrderType sortingType = PostOrderType.CREATED_DESC;
@@ -19,8 +19,8 @@ public class Blog {
         }
     }
 
-    public void setAuthorFilter(String authorName) {
-        this.filteringAuthorName = authorName;
+    public void setAuthorFilter(User user) {
+        this.filteringUser = user;
     }
 
     public void setPostOrder(PostOrderType sortingType) {
@@ -38,8 +38,8 @@ public class Blog {
                 tag = filteringTag.stream().filter(t -> post.isContainTag(t)).findFirst().isPresent();
             }
 
-            if (this.filteringAuthorName != null) {
-                author = post.getUser().getName().equals(this.filteringAuthorName);
+            if (this.filteringUser != null) {
+                author = post.getUser().getUserId() == this.filteringUser.getUserId();
             }
 
             return tag && author;

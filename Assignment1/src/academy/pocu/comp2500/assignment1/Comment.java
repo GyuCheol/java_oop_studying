@@ -20,7 +20,7 @@ public class Comment {
     public Comment(int commentId, User user, String body) {
         this.commentId = commentId;
         this.user = user;
-        setBody(body);
+        updateComment(user, body);
     }
 
     public int getCommentId() {
@@ -47,8 +47,10 @@ public class Comment {
         return this.downvote;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void updateComment(User user, String body) {
+        if (this.user.getUserId() == user.getUserId()) {
+            this.body = body;
+        }
     }
 
     public void addComment(Comment comment) {
