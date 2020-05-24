@@ -5,8 +5,11 @@ import java.util.ArrayList;
 
 public class Post {
 
-    private int authorId;
+    private int commentSerialId = 0;
+    private int postId;
     private int[] reaction = new int[5];
+
+    private String authorName;
     private String title;
     private String content;
     private OffsetDateTime modifiedDateTime = OffsetDateTime.now();
@@ -15,10 +18,35 @@ public class Post {
     private ArrayList<String> tagList = new ArrayList<>();
     private ArrayList<Comment> commentList = new ArrayList<>();
 
-    public Post(int authorId, String title, String content) {
-        this.authorId = authorId;
+    public Post(int postId, String authorName, String title, String content) {
+        this.postId = postId;
+        this.authorName = authorName;
         this.title = title;
         this.content = content;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public boolean isContainTag(String tag) {
+        return tagList.stream().filter(x -> x.contains(tag)).findFirst().isPresent();
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public String getAuthorName() {
+        return this.authorName;
+    }
+
+    public OffsetDateTime getModifiedDateTime() {
+        return this.modifiedDateTime;
+    }
+
+    public OffsetDateTime getCreatedDateTime() {
+        return this.createdDateTime;
     }
 
     public void setTitle(String title) {
@@ -32,26 +60,37 @@ public class Post {
     }
 
     public void addTag(String tag) {
-        tagList.add(tag);
+        if (tag != null) {
+            tagList.add(tag);
+        }
     }
 
-    public void addComment(int authorId, String content) {
-        commentList.add(new Comment(authorId, content));
+    public void addComment(String authorName, String content) {
+
+        commentSerialId++;
+        commentList.add(new Comment(commentSerialId, authorName, content));
     }
 
-    public void addReactionType(ReactionType type) {
-        reaction[type.getNumber()]++;
+    public void addReaction(int reactionId) {
+        reaction[reactionId]++;
     }
 
-    public void removeReactionType(ReactionType type) {
-        reaction[type.getNumber()]--;
+    public void removeReaction(int reactionId) {
+        reaction[reactionId]--;
+    }
+
+    public int getReaction(int reactionId) {
+        return reaction[reactionId];
     }
 
     public ArrayList<Comment> getCommentList() {
+        ArrayList<Comment> list = new ArrayList<>();
 
-        // this.commentList.sort((a, b) -> );
+        this.commentList.stream().sorted((a, b) -> {
+            return -Integer.compare((a.getUpvote() - a.getDownvote()), (b.getUpvote() - b.getDownvote()));
+        }).forEach(x -> list.add(x));
 
-        return this.commentList;
+        return list;
     }
 
 }

@@ -1,33 +1,71 @@
 package academy.pocu.comp2500.assignment1;
 
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
 public class Blog {
 
+    private int postSerialId = 0;
+
     private String filteringTag;
-    private int filteringAuthorId;
+    private String filteringAuthorName;
 
     private ArrayList<Post> postList = new ArrayList<>();
-    private PostOrderType postOrderType = PostOrderType.CREATED_DESC;
+    private PostOrderType sortingType = PostOrderType.CREATED_DESC;
 
-    public void addPost(int authorId, String title, String content) {
-        postList.add(new Post(authorId, title, content));
+    public void addPost(String authorName, String title, String content) {
+        postSerialId++;
+
+        postList.add(new Post(postSerialId, authorName, title, content));
     }
 
-    public void setTagFilter(String tag) {
-        this.filteringTag = tag;
+    public void setTagFilter(String tagOrNull) {
+        this.filteringTag = tagOrNull;
     }
 
-    public void setAuthorFilter(int authorId) {
-        this.filteringAuthorId = authorId;
+    public void setAuthorFilter(String authorNameOrNull) {
+        this.filteringAuthorName = authorNameOrNull;
     }
 
-    public void setPostOrder(PostOrderType type) {
-        this.postOrderType = type;
+    public void setPostOrder(PostOrderType sortingType) {
+        this.sortingType = sortingType;
     }
 
-    public ArrayList<Blog> getPostList() {
-        ArrayList<Blog> list = new ArrayList<>();
+    public ArrayList<Post> getPostList() {
+        ArrayList<Post> list = new ArrayList<>();
+
+        postList.stream().filter(post -> {
+            boolean tag = true;
+            boolean author = true;
+
+            if (this.filteringTag != null && this.filteringTag.equals("") == false) {
+                tag = post.isContainTag(this.filteringTag);
+            }
+
+            if (this.filteringAuthorName != null && this.filteringAuthorName.equals("") == false) {
+                author = post.getAuthorName().contains(this.filteringAuthorName);
+            }
+
+            return tag && author;
+
+        }).sorted((a, b) -> {
+
+            switch (this.sortingType) {
+                case CREATED_ASC:
+                    return a.getCreatedDateTime().compareTo(b.getCreatedDateTime());
+                case CREATED_DESC:
+                    return -a.getCreatedDateTime().compareTo(b.getCreatedDateTime());
+                case MODIFIED_ASC:
+                    return a.getModifiedDateTime().compareTo(b.getModifiedDateTime());
+                case MODIFIED_DESC:
+                    return -a.getModifiedDateTime().compareTo(b.getModifiedDateTime());
+                case TITLE_ASC:
+                    return a.getTitle().compareTo(b.getTitle());
+            }
+
+            return 0;
+
+        }).forEach(post -> list.add(post));
 
         return list;
     }

@@ -5,25 +5,43 @@ import java.util.ArrayList;
 
 public class Comment {
 
-    private int authorId;
+    private int subCommentSerialId = 0;
+    private int commentId;
     private int upvote = 0;
     private int downvote = 0;
+
+    private String authorName;
     private OffsetDateTime createdDateTime = OffsetDateTime.now();
 
     private String content;
     private ArrayList<Comment> subCommentList = new ArrayList<>();
 
-    public Comment(int authorId, String content) {
-        this.authorId = authorId;
+    public Comment(int commentId, String authorName, String content) {
+        this.commentId = commentId;
+        this.authorName = authorName;
         setContent(content);
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public int getUpvote() {
+        return this.upvote;
+    }
+
+    public int getDownvote() {
+        return this.downvote;
     }
 
     public void setContent(String content) {
         this.content = content;
     }
 
-    public void addSubComment(int authorId, String content) {
-        subCommentList.add(new Comment(authorId, content));
+    public void addSubComment(String authorName, String content) {
+        subCommentSerialId++;
+
+        subCommentList.add(new Comment(subCommentSerialId, authorName, content));
     }
 
     public void upVote() {
