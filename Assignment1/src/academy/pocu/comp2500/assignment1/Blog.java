@@ -13,9 +13,11 @@ public class Blog {
         postList.add(post);
     }
 
-    public void addTagFilter(String tag) {
-        if (tag != null) {
-            this.filteringTag.add(tag);
+    public void addTagFilter(String tagOrNull) {
+        if (tagOrNull != null) {
+            this.filteringTag.add(tagOrNull);
+        } else {
+            this.filteringTag.clear();
         }
     }
 
