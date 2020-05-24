@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Comment {
-
-    private int subCommentSerialId = 0;
-    private int commentId;
     private int upvote = 0;
     private int downvote = 0;
 
@@ -18,14 +15,9 @@ public class Comment {
     private ArrayList<Comment> subCommentList = new ArrayList<>();
     private HashSet<String> nameSet = new HashSet<>();
 
-    public Comment(int commentId, String authorName, String body) {
-        this.commentId = commentId;
+    public Comment(String authorName, String body) {
         this.authorName = authorName;
         setBody(body);
-    }
-
-    public int getCommentId() {
-        return this.commentId;
     }
 
     public String getAuthorName() {
@@ -52,10 +44,8 @@ public class Comment {
         this.body = body;
     }
 
-    public void addSubComment(String authorName, String body) {
-        subCommentSerialId++;
-
-        subCommentList.add(new Comment(subCommentSerialId, authorName, body));
+    public void addSubComment(Comment subcomment) {
+        subCommentList.add(subcomment);
     }
 
     public void upVote(String name) {

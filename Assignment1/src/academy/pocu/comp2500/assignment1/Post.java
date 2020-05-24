@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Post {
 
     private int commentSerialId = 0;
-    private int postId;
     private int[] reaction = new int[5];
 
     private String authorName;
@@ -18,15 +17,10 @@ public class Post {
     private ArrayList<String> tagList = new ArrayList<>();
     private ArrayList<Comment> commentList = new ArrayList<>();
 
-    public Post(int postId, String authorName, String title, String body) {
-        this.postId = postId;
+    public Post(String authorName, String title, String body) {
         this.authorName = authorName;
         this.title = title;
         this.body = body;
-    }
-
-    public int getPostId() {
-        return this.postId;
     }
 
     public String getTitle() {
@@ -69,10 +63,8 @@ public class Post {
         }
     }
 
-    public void addComment(String authorName, String content) {
-
-        commentSerialId++;
-        commentList.add(new Comment(commentSerialId, authorName, content));
+    public void addComment(Comment comment) {
+        commentList.add(comment);
     }
 
     public void addReaction(int reactionId) {
@@ -91,13 +83,7 @@ public class Post {
         ArrayList<Comment> list = new ArrayList<>();
 
         this.commentList.stream().sorted((a, b) -> {
-            int compare = (b.getUpvote() - b.getDownvote()) - (a.getUpvote() - a.getDownvote());
-
-            if (compare == 0) {
-                return b.getCommentId() - a.getCommentId();
-            }
-
-            return compare;
+            return (b.getUpvote() - b.getDownvote()) - (a.getUpvote() - a.getDownvote());
         }).forEach(x -> list.add(x));
 
         return list;

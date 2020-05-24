@@ -4,18 +4,14 @@ import java.util.ArrayList;
 
 public class Blog {
 
-    private int postSerialId = 0;
-
     private String filteringTag;
     private String filteringAuthorName;
 
     private ArrayList<Post> postList = new ArrayList<>();
     private PostOrderType sortingType = PostOrderType.CREATED_DESC;
 
-    public void addPost(String authorName, String title, String body) {
-        postSerialId++;
-
-        postList.add(new Post(postSerialId, authorName, title, body));
+    public void addPost(Post post) {
+        postList.add(post);
     }
 
     public void setTagFilter(String tagOrNull) {
