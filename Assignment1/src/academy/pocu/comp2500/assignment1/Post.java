@@ -2,25 +2,31 @@ package academy.pocu.comp2500.assignment1;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Post {
 
-    private int commentSerialId = 0;
+    private int postId;
     private int[] reaction = new int[5];
 
-    private String authorName;
+    private User user;
     private String title;
     private String body;
     private OffsetDateTime modifiedDateTime = OffsetDateTime.now();
     private OffsetDateTime createdDateTime = OffsetDateTime.now();
 
-    private ArrayList<String> tagList = new ArrayList<>();
+    private HashSet<String> tagSet = new HashSet<>();
     private ArrayList<Comment> commentList = new ArrayList<>();
 
-    public Post(String authorName, String title, String body) {
-        this.authorName = authorName;
+    public Post(int postId, User user, String title, String body) {
+        this.postId = postId;
+        this.user = user;
         this.title = title;
         this.body = body;
+    }
+
+    public int getPostId() {
+        return this.postId;
     }
 
     public String getTitle() {
@@ -28,7 +34,7 @@ public class Post {
     }
 
     public boolean isContainTag(String tag) {
-        return tagList.stream().filter(x -> x.contains(tag)).findFirst().isPresent();
+        return tagSet.stream().filter(x -> x.equals(tag)).findFirst().isPresent();
     }
 
     public String getBody() {
@@ -36,7 +42,7 @@ public class Post {
     }
 
     public String getAuthorName() {
-        return this.authorName;
+        return this.user.getName();
     }
 
     public OffsetDateTime getModifiedDateTime() {
@@ -58,8 +64,8 @@ public class Post {
     }
 
     public void addTag(String tag) {
-        if (tag != null) {
-            tagList.add(tag);
+        if (tag != null && tagSet.contains(tag) == false) {
+            tagSet.add(tag);
         }
     }
 
@@ -67,16 +73,16 @@ public class Post {
         commentList.add(comment);
     }
 
-    public void addReaction(int reactionId) {
-        reaction[reactionId]++;
+    public void addReaction(ReactionType reactionType) {
+        reaction[reactionType.getIndex()]++;
     }
 
-    public void removeReaction(int reactionId) {
-        reaction[reactionId]--;
+    public void removeReaction(ReactionType reactionType) {
+        reaction[reactionType.getIndex()]--;
     }
 
-    public int getReaction(int reactionId) {
-        return reaction[reactionId];
+    public int getReaction(ReactionType reactionType) {
+        return reaction[reactionType.getIndex()];
     }
 
     public ArrayList<Comment> getCommentList() {

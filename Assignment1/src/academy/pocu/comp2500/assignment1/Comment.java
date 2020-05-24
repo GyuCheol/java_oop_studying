@@ -5,23 +5,30 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Comment {
+
+    private int commentId;
     private int upvote = 0;
     private int downvote = 0;
 
-    private String authorName;
+    private User user;
     private OffsetDateTime createdDateTime = OffsetDateTime.now();
 
     private String body;
     private ArrayList<Comment> subCommentList = new ArrayList<>();
     private HashSet<String> nameSet = new HashSet<>();
 
-    public Comment(String authorName, String body) {
-        this.authorName = authorName;
+    public Comment(int commentId, User user, String body) {
+        this.commentId = commentId;
+        this.user = user;
         setBody(body);
     }
 
+    public int getCommentId() {
+        return this.commentId;
+    }
+
     public String getAuthorName() {
-        return this.authorName;
+        return this.user.getName();
     }
 
     public OffsetDateTime getCreatedDateTime() {
