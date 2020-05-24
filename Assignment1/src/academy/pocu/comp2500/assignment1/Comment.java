@@ -2,6 +2,7 @@ package academy.pocu.comp2500.assignment1;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Comment {
 
@@ -15,11 +16,16 @@ public class Comment {
 
     private String body;
     private ArrayList<Comment> subCommentList = new ArrayList<>();
+    private HashSet<String> nameSet = new HashSet<>();
 
     public Comment(int commentId, String authorName, String body) {
         this.commentId = commentId;
         this.authorName = authorName;
         setBody(body);
+    }
+
+    public int getCommentId() {
+        return this.commentId;
     }
 
     public String getAuthorName() {
@@ -52,12 +58,18 @@ public class Comment {
         subCommentList.add(new Comment(subCommentSerialId, authorName, body));
     }
 
-    public void upVote() {
-        this.upvote++;
+    public void upVote(String name) {
+        if (nameSet.contains(name) == false) {
+            this.upvote++;
+            nameSet.add(name);
+        }
     }
 
-    public void downVote() {
-        this.downvote++;
+    public void downVote(String name) {
+        if (nameSet.contains(name) == false) {
+            this.downvote++;
+            nameSet.add(name);
+        }
     }
 
     public ArrayList<Comment> getSubCommentList() {

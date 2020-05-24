@@ -25,6 +25,10 @@ public class Post {
         this.body = body;
     }
 
+    public int getPostId() {
+        return this.postId;
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -87,7 +91,13 @@ public class Post {
         ArrayList<Comment> list = new ArrayList<>();
 
         this.commentList.stream().sorted((a, b) -> {
-            return -Integer.compare((a.getUpvote() - a.getDownvote()), (b.getUpvote() - b.getDownvote()));
+            int compare = (b.getUpvote() - b.getDownvote()) - (a.getUpvote() - a.getDownvote());
+
+            if (compare == 0) {
+                return b.getCommentId() - a.getCommentId();
+            }
+
+            return compare;
         }).forEach(x -> list.add(x));
 
         return list;
