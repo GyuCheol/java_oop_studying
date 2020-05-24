@@ -11,18 +11,18 @@ public class Post {
 
     private String authorName;
     private String title;
-    private String content;
+    private String body;
     private OffsetDateTime modifiedDateTime = OffsetDateTime.now();
     private OffsetDateTime createdDateTime = OffsetDateTime.now();
 
     private ArrayList<String> tagList = new ArrayList<>();
     private ArrayList<Comment> commentList = new ArrayList<>();
 
-    public Post(int postId, String authorName, String title, String content) {
+    public Post(int postId, String authorName, String title, String body) {
         this.postId = postId;
         this.authorName = authorName;
         this.title = title;
-        this.content = content;
+        this.body = body;
     }
 
     public String getTitle() {
@@ -33,8 +33,8 @@ public class Post {
         return tagList.stream().filter(x -> x.contains(tag)).findFirst().isPresent();
     }
 
-    public String getContent() {
-        return this.content;
+    public String getBody() {
+        return this.body;
     }
 
     public String getAuthorName() {
@@ -54,8 +54,8 @@ public class Post {
         modifiedDateTime = OffsetDateTime.now();
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setBody(String body) {
+        this.body = body;
         modifiedDateTime = OffsetDateTime.now();
     }
 

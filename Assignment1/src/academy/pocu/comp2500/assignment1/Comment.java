@@ -13,17 +13,25 @@ public class Comment {
     private String authorName;
     private OffsetDateTime createdDateTime = OffsetDateTime.now();
 
-    private String content;
+    private String body;
     private ArrayList<Comment> subCommentList = new ArrayList<>();
 
-    public Comment(int commentId, String authorName, String content) {
+    public Comment(int commentId, String authorName, String body) {
         this.commentId = commentId;
         this.authorName = authorName;
-        setContent(content);
+        setBody(body);
     }
 
-    public String getContent() {
-        return this.content;
+    public String getAuthorName() {
+        return this.authorName;
+    }
+
+    public OffsetDateTime getCreatedDateTime() {
+        return this.createdDateTime;
+    }
+
+    public String getBody() {
+        return this.body;
     }
 
     public int getUpvote() {
@@ -34,14 +42,14 @@ public class Comment {
         return this.downvote;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setBody(String body) {
+        this.body = body;
     }
 
-    public void addSubComment(String authorName, String content) {
+    public void addSubComment(String authorName, String body) {
         subCommentSerialId++;
 
-        subCommentList.add(new Comment(subCommentSerialId, authorName, content));
+        subCommentList.add(new Comment(subCommentSerialId, authorName, body));
     }
 
     public void upVote() {

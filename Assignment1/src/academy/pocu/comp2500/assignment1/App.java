@@ -15,20 +15,20 @@ public class App {
         registry.registerPostListGetter("Blog", "getPostList");
 
         registry.registerPostTitleUpdater("Post", "setTitle");
-        registry.registerPostBodyUpdater("Post", "setContent");
+        registry.registerPostBodyUpdater("Post", "setBody");
         registry.registerPostTagAdder("Post", "addTag");
         registry.registerCommentAdder("Post", "addComment");
         registry.registerReactionAdder("Post", "addReaction");
         registry.registerReactionRemover("Post", "removeReaction");
         registry.registerCommentListGetter("Post", "getCommentList");
 
-        registry.registerCommentUpdater("Comment", "setContent");
+        registry.registerCommentUpdater("Comment", "setBody");
         registry.registerCommentUpvoter("Comment", "upVote");
         registry.registerCommentDownvoter("Comment", "downVote");
         registry.registerSubcommentAdder("Comment", "addSubComment");
         registry.registerSubCommentListGetter("Comment", "getSubCommentList");
 
-        registry.registerSubcommentUpdater("Comment", "setContent");
+        registry.registerSubcommentUpdater("Comment", "setBody");
         registry.registerSubcommentUpvoter("Comment", "upVote");
         registry.registerSubcommentDownvoter("Comment", "downVote");
     }

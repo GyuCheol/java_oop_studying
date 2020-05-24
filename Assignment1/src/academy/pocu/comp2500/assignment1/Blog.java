@@ -1,6 +1,5 @@
 package academy.pocu.comp2500.assignment1;
 
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
 public class Blog {
@@ -13,10 +12,10 @@ public class Blog {
     private ArrayList<Post> postList = new ArrayList<>();
     private PostOrderType sortingType = PostOrderType.CREATED_DESC;
 
-    public void addPost(String authorName, String title, String content) {
+    public void addPost(String authorName, String title, String body) {
         postSerialId++;
 
-        postList.add(new Post(postSerialId, authorName, title, content));
+        postList.add(new Post(postSerialId, authorName, title, body));
     }
 
     public void setTagFilter(String tagOrNull) {
