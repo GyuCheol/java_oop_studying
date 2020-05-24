@@ -51,8 +51,8 @@ public class Comment {
         this.body = body;
     }
 
-    public void addSubComment(Comment subcomment) {
-        subCommentList.add(subcomment);
+    public void addComment(Comment comment) {
+        this.subCommentList.add(comment);
     }
 
     public void upVote(User user) {
@@ -69,7 +69,7 @@ public class Comment {
         }
     }
 
-    public ArrayList<Comment> getSubCommentList() {
+    public ArrayList<Comment> getCommentList() {
         ArrayList<Comment> list = new ArrayList<>();
 
         this.subCommentList.stream().sorted((a, b) -> {

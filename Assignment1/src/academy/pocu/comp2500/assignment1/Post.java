@@ -37,6 +37,14 @@ public class Post {
         return tagSet.stream().filter(x -> x.equals(tag)).findFirst().isPresent();
     }
 
+    public ArrayList<String> getTag() {
+        ArrayList<String> list = new ArrayList<>();
+
+        tagSet.stream().forEach(tag -> list.add(tag));
+
+        return list;
+    }
+
     public String getBody() {
         return this.body;
     }

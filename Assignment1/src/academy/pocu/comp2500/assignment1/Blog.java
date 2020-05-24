@@ -1,9 +1,6 @@
 package academy.pocu.comp2500.assignment1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
 
 public class Blog {
 
@@ -16,14 +13,14 @@ public class Blog {
         postList.add(post);
     }
 
-    public void setTagFilter(String tag) {
+    public void addTagFilter(String tag) {
         if (tag != null) {
             this.filteringTag.add(tag);
         }
     }
 
-    public void setAuthorFilter(String authorNameOrNull) {
-        this.filteringAuthorName = authorNameOrNull;
+    public void setAuthorFilter(String authorName) {
+        this.filteringAuthorName = authorName;
     }
 
     public void setPostOrder(PostOrderType sortingType) {
@@ -37,11 +34,11 @@ public class Blog {
             boolean tag = true;
             boolean author = true;
 
-            if (this.filteringTag.size() > 0 && this.filteringTag.equals("") == false) {
+            if (this.filteringTag.size() > 0) {
                 tag = filteringTag.stream().filter(t -> post.isContainTag(t)).findFirst().isPresent();
             }
 
-            if (this.filteringAuthorName != null && this.filteringAuthorName.equals("") == false) {
+            if (this.filteringAuthorName != null) {
                 author = post.getUser().getName().equals(this.filteringAuthorName);
             }
 
