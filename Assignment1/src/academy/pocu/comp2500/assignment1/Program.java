@@ -41,9 +41,7 @@ public class Program {
             System.out.println(post.getTitle());
         }
 
-        String[] tagList = { "ABC", "BCC" };
-
-        blog.setTagFilter(tagList);
+        blog.setTagFilter("ABC");
 
         for (Post post : blog.getPostList()) {
             System.out.println(post.getTitle());

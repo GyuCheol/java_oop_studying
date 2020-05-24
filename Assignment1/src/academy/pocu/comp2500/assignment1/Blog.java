@@ -7,9 +7,8 @@ import java.util.List;
 
 public class Blog {
 
-    private String[] filteringTag;
     private String filteringAuthorName;
-
+    private ArrayList<String> filteringTag= new ArrayList<>();
     private ArrayList<Post> postList = new ArrayList<>();
     private PostOrderType sortingType = PostOrderType.CREATED_DESC;
 
@@ -17,8 +16,10 @@ public class Blog {
         postList.add(post);
     }
 
-    public void setTagFilter(String... tagOrNull) {
-        this.filteringTag = tagOrNull;
+    public void setTagFilter(String tag) {
+        if (tag != null) {
+            this.filteringTag.add(tag);
+        }
     }
 
     public void setAuthorFilter(String authorNameOrNull) {
@@ -36,8 +37,8 @@ public class Blog {
             boolean tag = true;
             boolean author = true;
 
-            if (this.filteringTag != null && this.filteringTag.equals("") == false) {
-                tag = Arrays.stream(filteringTag).filter(t -> post.isContainTag(t)).findFirst().isPresent();
+            if (this.filteringTag.size() > 0 && this.filteringTag.equals("") == false) {
+                tag = filteringTag.stream().filter(t -> post.isContainTag(t)).findFirst().isPresent();
             }
 
             if (this.filteringAuthorName != null && this.filteringAuthorName.equals("") == false) {
