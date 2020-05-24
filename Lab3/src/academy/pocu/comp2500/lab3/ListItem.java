@@ -33,12 +33,16 @@ public class ListItem {
         this.bulletStyle = bulletStyle;
     }
 
-	public void addSublistItem(ListItem listItem) {
-        subItems.add(listItem);
+    public void addSublistItem(ListItem item) {
+        subItems.add(item);
     }
 
     public void removeSublistItem(int index) {
         this.subItems.remove(index);
+    }
+
+    public ListItem getSublistItem(int index) {
+        return subItems.get(index);
     }
 
     private String getListText(int depth) {
