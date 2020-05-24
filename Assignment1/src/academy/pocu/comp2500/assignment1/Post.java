@@ -41,8 +41,8 @@ public class Post {
         return this.body;
     }
 
-    public String getAuthorName() {
-        return this.user.getName();
+    public User getUser() {
+        return this.user;
     }
 
     public OffsetDateTime getModifiedDateTime() {

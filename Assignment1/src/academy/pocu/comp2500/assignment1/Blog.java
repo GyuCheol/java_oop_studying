@@ -2,10 +2,11 @@ package academy.pocu.comp2500.assignment1;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class Blog {
 
-    private HashSet<String> filteringTag;
+    private List<String> filteringTag;
     private String filteringAuthorName;
 
     private ArrayList<Post> postList = new ArrayList<>();
@@ -15,8 +16,8 @@ public class Blog {
         postList.add(post);
     }
 
-    public void setTagFilter(HashSet<String> tag) {
-        this.filteringTag = tag;
+    public void setTagFilter(List<String> tagOrNull) {
+        this.filteringTag = tagOrNull;
     }
 
     public void setAuthorFilter(String authorNameOrNull) {
@@ -39,7 +40,7 @@ public class Blog {
             }
 
             if (this.filteringAuthorName != null && this.filteringAuthorName.equals("") == false) {
-                author = post.getAuthorName().equals(this.filteringAuthorName);
+                author = post.getUser().getName().equals(this.filteringAuthorName);
             }
 
             return tag && author;

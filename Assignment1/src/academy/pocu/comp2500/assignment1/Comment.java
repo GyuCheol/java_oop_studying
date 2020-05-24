@@ -27,8 +27,8 @@ public class Comment {
         return this.commentId;
     }
 
-    public String getAuthorName() {
-        return this.user.getName();
+    public User getUser() {
+        return this.user;
     }
 
     public OffsetDateTime getCreatedDateTime() {
@@ -55,22 +55,28 @@ public class Comment {
         subCommentList.add(subcomment);
     }
 
-    public void upVote(String name) {
-        if (nameSet.contains(name) == false) {
+    public void upVote(User user) {
+        if (nameSet.contains(user.getName()) == false) {
             this.upvote++;
-            nameSet.add(name);
+            nameSet.add(user.getName());
         }
     }
 
-    public void downVote(String name) {
-        if (nameSet.contains(name) == false) {
+    public void downVote(User user) {
+        if (nameSet.contains(user.getName()) == false) {
             this.downvote++;
-            nameSet.add(name);
+            nameSet.add(user.getName());
         }
     }
 
     public ArrayList<Comment> getSubCommentList() {
-        return this.subCommentList;
+        ArrayList<Comment> list = new ArrayList<>();
+
+        this.subCommentList.stream().sorted((a, b) -> {
+            return (b.getUpvote() - b.getDownvote()) - (a.getUpvote() - a.getDownvote());
+        }).forEach(x -> list.add(x));
+
+        return list;
     }
 
 }
