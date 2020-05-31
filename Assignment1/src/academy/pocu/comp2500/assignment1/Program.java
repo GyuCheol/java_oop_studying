@@ -48,7 +48,8 @@ public class Program {
             System.out.println(post.getTitle());
         }
 
-        blog.addTagFilter("ABC");
+        blog.addTagFilter(null);
+        blog.setAuthorFilter(null);
 
         for (Post post : blog.getPostList()) {
             System.out.println(post.getTitle());
