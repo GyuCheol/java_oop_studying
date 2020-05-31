@@ -1,6 +1,10 @@
 package academy.pocu.comp2500.lab4;
 
-import java.util.*;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 
 public class MemoryCache {
     private static int maxInstanceCount = 10;
