@@ -19,34 +19,34 @@ public class MemoryCache {
 
     private MemoryCache() { }
 
-    public static void setMaxInstanceCount(int count) {
-        maxInstanceCount = count;
-
-        while (memCacheMap.size() > maxInstanceCount) {
+    private static void clearInstance(int compareTo) {
+        while (memCacheMap.size() > compareTo) {
             // LRU 가장 안쓴 최근 것 제거
             String oldKey = memCacheMap.keySet().iterator().next();
 
             memCacheMap.remove(oldKey);
         }
+    }
 
+    public static void setMaxInstanceCount(int count) {
+        maxInstanceCount = count;
+        clearInstance(maxInstanceCount);
     }
 
     public static MemoryCache getInstance(String key) {
+
         MemoryCache cache = null;
 
         // LRU 소거
         if (memCacheMap.containsKey(key) == false) {
+            clearInstance(maxInstanceCount - 1);
             cache = new MemoryCache();
-            memCacheMap.put(key, cache);
-
-            setMaxInstanceCount(maxInstanceCount);
         } else {
             cache = memCacheMap.get(key);
 
             memCacheMap.remove(key);
-            // 제거했다가 다시 추가하여 최신 상태 업데이트
-            memCacheMap.put(key, cache);
         }
+        memCacheMap.put(key, cache);
 
         return cache;
     }
