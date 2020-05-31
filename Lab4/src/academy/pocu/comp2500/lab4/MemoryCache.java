@@ -7,10 +7,10 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 
 public class MemoryCache {
-    private static int maxInstanceCount = 10;
+    private static int maxInstanceCount = Integer.MAX_VALUE;
     private static LinkedHashMap<String, MemoryCache> memCacheMap = new LinkedHashMap<>();
 
-    private int maxEntryCount = 10;
+    private int maxEntryCount = Integer.MAX_VALUE;
     private EvictionPolicy policy = EvictionPolicy.LEAST_RECENTLY_USED;
     private LinkedHashMap<String, String> cacheMap = new LinkedHashMap<>();
 
