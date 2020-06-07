@@ -21,8 +21,12 @@ public class Barbarian {
     }
 
     public void attack(Barbarian barbarian) {
+        if (this == barbarian) {
+            return;
+        }
+
         double dmg = (this.attack - barbarian.defense) / 2.0;
-        int intDmg = Math.max(1, (int)dmg);
+        int intDmg = Math.max(1, (int) dmg);
 
         barbarian.damage(intDmg);
     }

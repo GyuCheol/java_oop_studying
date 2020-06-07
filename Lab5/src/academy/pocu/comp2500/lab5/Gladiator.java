@@ -48,15 +48,14 @@ public class Gladiator extends Barbarian {
     }
 
     public void attack(String skillName, Barbarian barbarian) {
-
         Move skill = getSkillOrNull(skillName);
 
-        if (skill == null) {
+        if (skill == null || this == barbarian) {
             return;
         }
 
         double dmg = ((double)this.attack / barbarian.defense * skill.getPower()) / 2.0;
-        int intDmg = Math.max(1, (int)dmg);
+        int intDmg = Math.max(1, (int) dmg);
 
         barbarian.damage(intDmg);
     }

@@ -14,12 +14,12 @@ public class Knight extends Gladiator {
 
     public void attackTogether(Barbarian barbarian) {
 
-        if (this.pet == null) {
+        if (this.pet == null || this == barbarian) {
             return;
         }
 
         double dmg = (double)(this.attack + pet.getAttack() - barbarian.defense) / 2.0;
-        int intDmg = Math.max(1, (int)dmg);
+        int intDmg = Math.max(1, (int) dmg);
 
         barbarian.damage(intDmg);
 
