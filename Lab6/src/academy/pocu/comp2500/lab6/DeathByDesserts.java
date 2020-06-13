@@ -8,6 +8,9 @@ public class DeathByDesserts extends SetMenu {
         super(20, 0, 4, 0);
     }
 
+    public void setDesserts(Dessert dessert1, Dessert dessert2, Dessert dessert3, Dessert dessert4) {
+        super.setDesserts(dessert1, dessert2, dessert3, dessert4);
+    }
 
 
 }

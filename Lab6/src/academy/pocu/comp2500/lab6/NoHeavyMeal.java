@@ -8,5 +8,8 @@ public class NoHeavyMeal extends SetMenu {
         super(15, 2, 1, 0);
     }
 
+    public void setAppetizers(Appetizer appetizer1, Appetizer appetizer2) {
+        super.setAppetizers(appetizer1, appetizer2);
+    }
 
 }
