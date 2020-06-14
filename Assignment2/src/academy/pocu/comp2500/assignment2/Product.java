@@ -4,13 +4,11 @@ public class Product {
     private int productId;
     private int width;
     private int height;
-    private String displayName;
     private ShippingMethod shippingMethod;
     protected int price;
     protected int color;
 
-    protected Product(int productId, String displayName, int width, int height, int price, int color, ShippingMethod shippingMethod) {
-        this.displayName = displayName;
+    protected Product(int productId, int width, int height, int price, int color, ShippingMethod shippingMethod) {
         this.productId = productId;
         this.width = width;
         this.height = height;
@@ -20,27 +18,27 @@ public class Product {
     }
 
     public int getHeight() {
-        return height;
+        return this.height;
     }
 
     public int getProductId() {
-        return productId;
+        return this.productId;
     }
 
     public int getWidth() {
-        return width;
+        return this.width;
     }
 
     public int getPrice() {
-        return price;
+        return this.price;
     }
 
     public int getColor() {
-        return color;
+        return this.color;
     }
 
     public ShippingMethod getShippingMethod() {
-        return shippingMethod;
+        return this.shippingMethod;
     }
 
     public void setShippingMethod(ShippingMethod shippingMethod) {

@@ -4,8 +4,8 @@ public class Stamp extends Product {
 
     private String text;
 
-    public Stamp(int productId, String displayName, String text, int width, int height, int price, StampColor stampColor, ShippingMethod shippingMethod) {
-        super(productId, displayName, width, height, price, stampColor.getColor(), shippingMethod);
+    public Stamp(int productId, String text, int width, int height, int price, StampColor stampColor, ShippingMethod shippingMethod) {
+        super(productId, width, height, price, stampColor.getColor(), shippingMethod);
 
         this.text = text;
     }
