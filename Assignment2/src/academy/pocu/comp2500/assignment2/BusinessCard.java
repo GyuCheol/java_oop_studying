@@ -1,12 +1,12 @@
 package academy.pocu.comp2500.assignment2;
 
-public class BusinessCard extends HQProduct {
+public class BusinessCard extends Product {
 
     private CardSides cardSides;
     private PaperType paperType;
 
-    public BusinessCard(int productId, int price, CardColor cardColor, Orientation orientation, CardSides cardSides, PaperType paperType, ShippingMethod shippingMethod) {
-        super(productId, 9, 5, price, cardColor.getColor(), orientation, shippingMethod);
+    public BusinessCard(int productId, CardColor cardColor, Orientation orientation, CardSides cardSides, PaperType paperType, ShippingMethod shippingMethod) {
+        super(productId, 9, 5, cardColor.getColor(), orientation, shippingMethod);
 
         this.cardSides = cardSides;
         this.paperType = paperType;

@@ -14,7 +14,9 @@ public class Program {
 
         // Task #1
         {
-            Stamp redStamp = new Stamp(1, "hello", 4, 3, 1000, StampColor.RED, ShippingMethod.SHIP);
+            Stamp redStamp = new Stamp(1, "hello", 4, 3, StampColor.RED, ShippingMethod.SHIP);
+
+            redStamp.setPrice(1000);
 
             assert redStamp.getColor() == 0xFF0000;
             assert redStamp.getPrice() == 1000;
@@ -23,7 +25,9 @@ public class Program {
         // Task #2
         {
             Cart cart = new Cart();
-            Stamp redStamp = new Stamp(1,"hello", 4, 3, 1000, StampColor.RED, ShippingMethod.SHIP);
+            Stamp redStamp = new Stamp(1,"hello", 4, 3, StampColor.RED, ShippingMethod.SHIP);
+
+            redStamp.setPrice(1000);
             cart.addCartItem(redStamp);
             cart.addCartItem(redStamp);
             cart.addCartItem(redStamp);
@@ -39,7 +43,9 @@ public class Program {
             assert cart.getCartItems().size() == 0;
             assert cart.getTotalPrice() == 0;
 
-            Banner banner = new Banner(2,10, 10, 10, 0xFF0000, Orientation.PORTRAIT, ShippingMethod.SHIP);
+            Banner banner = new Banner(2,10, 10, 0xFF0000, Orientation.PORTRAIT, ShippingMethod.SHIP);
+
+            banner.setPrice(10);
 
             cart.addCartItem(banner);
 
@@ -68,16 +74,14 @@ public class Program {
 
         // Task #3
         {
-            Calendar wallCalendar = new Calendar(1, 40, 40, 1000, 0xFFFFFF, ShippingMethod.SHIP);
+            Calendar wallCalendar = new Calendar(1, 40, 40, 0xFFFFFF, ShippingMethod.SHIP);
+
+            wallCalendar.setPrice(1000);
 
             assert wallCalendar.getPrice() == 1000;
             assert wallCalendar.getWidth() == 40 && wallCalendar.getHeight() == 40;
             assert wallCalendar.getColor() == 0xFFFFFF;
         }
-
-
-
-
 
     }
 
