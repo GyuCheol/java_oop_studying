@@ -5,34 +5,34 @@ import java.util.ArrayList;
 
 public class Cart {
 
-    private ArrayList<CartItem> cartItems = new ArrayList<>();
+    private ArrayList<Product> products = new ArrayList<>();
 
     public int getTotalPrice() {
         int total = 0;
 
-        for (CartItem item : cartItems) {
-            total += item.getProduct().getPrice();
+        for (Product item : products) {
+            total += item.getPrice();
 
         }
 
         return total;
     }
 
-    public ArrayList<CartItem> getCartItems() {
-        return this.cartItems;
+    public ArrayList<Product> getCartItems() {
+        return this.products;
     }
 
-    public void addCardItem(CartItem cartItem) {
+    public void addCartItem(Product product) {
 
-        if (cartItems.contains(cartItem) == false) {
-            cartItems.add(cartItem);
+        if (products.contains(product) == false) {
+            products.add(product);
         }
     }
 
-    public void removeCardItem(CartItem cartItem) {
+    public void removeCartItem(Product product) {
 
-        if (cartItems.contains(cartItem)) {
-            cartItems.remove(cartItem);
+        if (products.contains(product)) {
+            products.remove(product);
         }
     }
 

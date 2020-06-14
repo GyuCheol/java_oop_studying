@@ -33,8 +33,8 @@ public class App {
         registry.registerDoubleSidedBusinessCardCreator("BusinessCard", "createBusinessCard");
 
         registry.registerCartCreator("Cart");
-        registry.registerProductAdder("Cart", "addCardItem");
-        registry.registerProductRemover("Cart", "removeCardItem");
+        registry.registerProductAdder("Cart", "addCartItem");
+        registry.registerProductRemover("Cart", "removeCartItem");
         registry.registerTotalPriceGetter("Cart", "getTotalPrice");
 
         registry.registerLandscapeBannerTextApertureAdder("HQProduct", "addTextElement");

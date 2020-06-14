@@ -14,7 +14,7 @@ public class Program {
 
         // Task #1
         {
-            RedStamp redStamp = new RedStamp(1, "hello", 4, 3, 1000);
+            RedStamp redStamp = new RedStamp(1, "hello", 4, 3, 1000, ShippingMethod.SHIP);
 
             assert redStamp.getColor() == 0xFF0000;
             assert redStamp.getPrice() == 1000;
@@ -23,29 +23,25 @@ public class Program {
         // Task #2
         {
             Cart cart = new Cart();
-            RedStamp redStamp = new RedStamp(1, "hello", 4, 3, 1000);
-            CartItem cartItem = new CartItem(1, redStamp, ShippingMethod.SHIP);
+            RedStamp redStamp = new RedStamp(1, "hello", 4, 3, 1000, ShippingMethod.SHIP);
+            cart.addCartItem(redStamp);
+            cart.addCartItem(redStamp);
+            cart.addCartItem(redStamp);
+            cart.addCartItem(redStamp);
 
-            cart.addCardItem(cartItem);
-            cart.addCardItem(cartItem);
-            cart.addCardItem(cartItem);
-            cart.addCardItem(cartItem);
-
-            cartItem.setShippingMethod(ShippingMethod.PICKUP);
+            redStamp.setShippingMethod(ShippingMethod.PICKUP);
 
             assert cart.getTotalPrice() == 1000;
-            assert cartItem.getShippingMethod() == ShippingMethod.PICKUP;
+            assert redStamp.getShippingMethod() == ShippingMethod.PICKUP;
             assert cart.getCartItems().size() == 1;
 
-            cart.removeCardItem(cartItem);
+            cart.removeCartItem(redStamp);
             assert cart.getCartItems().size() == 0;
             assert cart.getTotalPrice() == 0;
 
-            Banner banner = Banner.createBanner(2, 10, 10, 10, 0xFF0000, Orientation.PORTRAIT);
+            Banner banner = Banner.createBanner(2, 10, 10, 10, 0xFF0000, Orientation.PORTRAIT, ShippingMethod.SHIP);
 
-            CartItem cartItem2 = new CartItem(2, banner, ShippingMethod.SHIP);
-
-            cart.addCardItem(cartItem2);
+            cart.addCartItem(banner);
 
             assert cart.getTotalPrice() == 10;
             assert banner.getPrice() == 10;
@@ -72,7 +68,7 @@ public class Program {
 
         // Task #3
         {
-            WallCalendar wallCalendar = new WallCalendar(1);
+            WallCalendar wallCalendar = new WallCalendar(1, ShippingMethod.SHIP);
 
             assert wallCalendar.getPrice() == 1000;
             assert wallCalendar.getWidth() == 40 && wallCalendar.getHeight() == 40;

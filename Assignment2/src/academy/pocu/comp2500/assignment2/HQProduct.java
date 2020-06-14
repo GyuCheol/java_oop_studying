@@ -8,8 +8,8 @@ public class HQProduct extends Product {
     private ArrayList<ImageElement> imageElements = new ArrayList<>();
     private ArrayList<TextElement> textElements = new ArrayList<>();
 
-    protected HQProduct(int productId, int width, int height, int price, int color, Orientation orientation) {
-        super(productId, width, height, price, color);
+    protected HQProduct(int productId, int width, int height, int price, int color, Orientation orientation, ShippingMethod shippingMethod) {
+        super(productId, width, height, price, color, shippingMethod);
 
         this.orientation = orientation;
     }
