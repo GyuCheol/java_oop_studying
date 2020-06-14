@@ -8,4 +8,12 @@ public class FreeSoulPizza extends Pizza {
         super(25, 2, 1, 2);
     }
 
+    public boolean addTopping(Topping topping) {
+        return addToppingAction(topping);
+    }
+
+    public boolean removeTopping(Topping topping) {
+        return removeToppingAction(topping);
+    }
+
 }

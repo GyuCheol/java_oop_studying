@@ -30,7 +30,7 @@ public class Pizza extends Menu {
         return this.toppings;
     }
 
-    public boolean addTopping(Topping topping) {
+    protected boolean addToppingAction(Topping topping) {
         if ((isMeat(topping) && this.meatCount >= maxMeatCount)
                 || (isVeggie(topping) && this.veggieCount >= maxVeggieCount)
                 || (isCheese(topping) && this.cheeseCount >= this.maxCheeseCount)) {
@@ -56,7 +56,7 @@ public class Pizza extends Menu {
         return true;
     }
 
-    public boolean removeTopping(Topping topping) {
+    protected boolean removeToppingAction(Topping topping) {
         boolean isRemoved = this.toppings.remove(topping);
 
         if (isRemoved) {

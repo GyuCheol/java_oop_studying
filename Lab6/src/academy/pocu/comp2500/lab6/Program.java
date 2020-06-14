@@ -104,18 +104,18 @@ public class Program {
             FreeSoulPizza freeSoulPizza = new FreeSoulPizza();
 
             assert (!freeSoulPizza.isValid());
-            assert (freeSoulPizza.addTopping(Topping.FETA_CHEESE));
-            assert (!freeSoulPizza.addTopping(Topping.CHEDDAR_CHEESE));
-            assert (freeSoulPizza.addTopping(Topping.BLACK_OLIVES));
-            assert (freeSoulPizza.addTopping(Topping.RED_ONIONS));
+            assert (freeSoulPizza.addToppingAction(Topping.FETA_CHEESE));
+            assert (!freeSoulPizza.addToppingAction(Topping.CHEDDAR_CHEESE));
+            assert (freeSoulPizza.addToppingAction(Topping.BLACK_OLIVES));
+            assert (freeSoulPizza.addToppingAction(Topping.RED_ONIONS));
             assert (!freeSoulPizza.isValid());
-            assert (!freeSoulPizza.addTopping(Topping.GREEN_PEPPERS));
-            assert (!freeSoulPizza.removeTopping(Topping.GREEN_PEPPERS));
+            assert (!freeSoulPizza.addToppingAction(Topping.GREEN_PEPPERS));
+            assert (!freeSoulPizza.removeToppingAction(Topping.GREEN_PEPPERS));
             assert (!freeSoulPizza.isValid());
-            assert (freeSoulPizza.addTopping(Topping.CHICKEN));
-            assert (freeSoulPizza.addTopping(Topping.SAUSAGES));
+            assert (freeSoulPizza.addToppingAction(Topping.CHICKEN));
+            assert (freeSoulPizza.addToppingAction(Topping.SAUSAGES));
             assert (freeSoulPizza.isValid());
-            assert (!freeSoulPizza.addTopping(Topping.PEPERONI));
+            assert (!freeSoulPizza.addToppingAction(Topping.PEPERONI));
         }
 
 

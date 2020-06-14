@@ -1,7 +1,5 @@
 package academy.pocu.comp2500.lab6;
 
-import java.util.ArrayList;
-
 public class HousePizza extends Pizza {
 
     public HousePizza() {
@@ -13,27 +11,27 @@ public class HousePizza extends Pizza {
     }
 
     public boolean addBacon() {
-        return addTopping(Topping.BACON);
+        return addToppingAction(Topping.BACON);
     }
 
     public boolean removeBacon() {
-        return removeTopping(Topping.BACON);
+        return removeToppingAction(Topping.BACON);
     }
 
     public boolean addPeperoni() {
-        return addTopping(Topping.PEPERONI);
+        return addToppingAction(Topping.PEPERONI);
     }
 
     public boolean removePeperoni() {
-        return removeTopping(Topping.PEPERONI);
+        return removeToppingAction(Topping.PEPERONI);
     }
 
     public boolean addSausages() {
-        return addTopping(Topping.SAUSAGES);
+        return addToppingAction(Topping.SAUSAGES);
     }
 
     public boolean removeSausages() {
-        return removeTopping(Topping.SAUSAGES);
+        return removeToppingAction(Topping.SAUSAGES);
     }
 
 
