@@ -27,10 +27,47 @@ public class Program {
             CartItem cartItem = new CartItem(1, redStamp, ShippingMethod.SHIP);
 
             cart.addCardItem(cartItem);
+            cart.addCardItem(cartItem);
+            cart.addCardItem(cartItem);
+            cart.addCardItem(cartItem);
 
             cartItem.setShippingMethod(ShippingMethod.PICKUP);
 
+            assert cart.getTotalPrice() == 1000;
             assert cartItem.getShippingMethod() == ShippingMethod.PICKUP;
+            assert cart.getCartItems().size() == 1;
+
+            cart.removeCardItem(cartItem);
+            assert cart.getCartItems().size() == 0;
+            assert cart.getTotalPrice() == 0;
+
+            Banner banner = Banner.createBanner(2, 10, 10, 10, 0xFF0000, Orientation.PORTRAIT);
+
+            CartItem cartItem2 = new CartItem(2, banner, ShippingMethod.SHIP);
+
+            cart.addCardItem(cartItem2);
+
+            assert cart.getTotalPrice() == 10;
+            assert banner.getPrice() == 10;
+
+            ImageElement imageElement = new ImageElement(1, "asd", 5, 5);
+            banner.addImageElement(imageElement);
+
+            assert cart.getTotalPrice() == 15;
+            assert banner.getPrice() == 15;
+
+            banner.addImageElement(imageElement);
+            banner.addImageElement(imageElement);
+
+            assert cart.getTotalPrice() == 15;
+            assert banner.getPrice() == 15;
+
+            banner.removeImageElement(imageElement);
+            banner.removeImageElement(imageElement);
+
+            assert cart.getTotalPrice() == 10;
+            assert banner.getPrice() == 10;
+
         }
 
         // Task #3

@@ -1,5 +1,6 @@
 package academy.pocu.comp2500.assignment2;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Cart {
@@ -14,7 +15,11 @@ public class Cart {
 
         }
 
-        return 0;
+        return total;
+    }
+
+    public ArrayList<CartItem> getCartItems() {
+        return this.cartItems;
     }
 
     public void addCardItem(CartItem cartItem) {
