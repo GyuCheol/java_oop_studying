@@ -12,7 +12,7 @@ public class SetMenu extends Menu {
     private ArrayList<Dessert> desserts = new ArrayList<>();
     private ArrayList<MainCourse> mainCourses = new ArrayList<>();
 
-    public SetMenu(int price, int maxDessertCount, int maxAppetizerCount, int maxMainCourseCount) {
+    protected SetMenu(int price, int maxDessertCount, int maxAppetizerCount, int maxMainCourseCount) {
         super(price);
 
         this.maxMainCourseCount = maxMainCourseCount;

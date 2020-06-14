@@ -12,7 +12,7 @@ public class Pizza extends Menu {
     protected int veggieCount = 0;
     protected ArrayList<Topping> toppings = new ArrayList<>();
 
-    public Pizza(int price, int maxMeatCount, int maxCheeseCount, int maxVeggieCount) {
+    protected Pizza(int price, int maxMeatCount, int maxCheeseCount, int maxVeggieCount) {
         super(price);
         this.maxMeatCount = maxMeatCount;
         this.maxCheeseCount = maxCheeseCount;
