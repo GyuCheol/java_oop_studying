@@ -4,17 +4,34 @@ public class Product {
     private int productId;
     private int width;
     private int height;
-    private int price;
-    private int rgb;
-    private Orientation orientation;
+    protected int price;
+    protected int rgb;
 
-    public Product(int productId, int width, int height, int price, int rgb, Orientation orientation) {
+    protected Product(int productId, int width, int height, int price, int rgb) {
         this.productId = productId;
         this.width = width;
         this.height = height;
         this.price = price;
         this.rgb = rgb;
-        this.orientation = orientation;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getRgb() {
+        return rgb;
+    }
 }

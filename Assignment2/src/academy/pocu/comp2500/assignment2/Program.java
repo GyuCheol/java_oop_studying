@@ -10,6 +10,13 @@ public class Program {
         App app = new App(registry);
         registry.validate();
 
+
+        // Task #1
+        {
+        }
+
+
+
     }
 
 }
