@@ -6,13 +6,13 @@ public enum CardColor {
     IVORY(0xFFFFF0),
     WHITE(0xFFFFFF);
 
-    private final int rgb;
+    private final int color;
 
-    private CardColor(int rgb) {
-        this.rgb = rgb;
+    private CardColor(int color) {
+        this.color = color;
     }
 
-    public int getRgb() {
-        return this.rgb;
+    public int getColor() {
+        return this.color;
     }
 }

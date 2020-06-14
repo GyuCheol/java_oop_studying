@@ -5,8 +5,8 @@ public class BusinessCard extends HQProduct {
     private CardSides cardSides;
     private PaperType paperType;
 
-    protected BusinessCard(int productId, int price, int rgb, Orientation orientation, CardSides cardSides, PaperType paperType) {
-        super(productId, 9, 5, price, rgb, orientation);
+    protected BusinessCard(int productId, int price, int color, Orientation orientation, CardSides cardSides, PaperType paperType) {
+        super(productId, 9, 5, price, color, orientation);
 
         this.cardSides = cardSides;
         this.paperType = paperType;
@@ -21,7 +21,7 @@ public class BusinessCard extends HQProduct {
     }
 
     public static BusinessCard createBusinessCard(int productId, int price, CardColor cardColor, Orientation orientation, CardSides cardSides, PaperType paperType) {
-        return new BusinessCard(productId, price, cardColor.getRgb(), orientation, cardSides, paperType);
+        return new BusinessCard(productId, price, cardColor.getColor(), orientation, cardSides, paperType);
     }
 
 }

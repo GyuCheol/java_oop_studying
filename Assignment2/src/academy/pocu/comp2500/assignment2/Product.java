@@ -5,14 +5,14 @@ public class Product {
     private int width;
     private int height;
     protected int price;
-    protected int rgb;
+    protected int color;
 
-    protected Product(int productId, int width, int height, int price, int rgb) {
+    protected Product(int productId, int width, int height, int price, int color) {
         this.productId = productId;
         this.width = width;
         this.height = height;
         this.price = price;
-        this.rgb = rgb;
+        this.color = color;
     }
 
     public int getHeight() {
@@ -31,7 +31,7 @@ public class Product {
         return price;
     }
 
-    public int getRgb() {
-        return rgb;
+    public int getColor() {
+        return color;
     }
 }

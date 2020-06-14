@@ -5,7 +5,7 @@ public class Stamp extends Product {
     private String text;
 
     protected Stamp(int productId, String text, int width, int height, int price, StampColor stampColor) {
-        super(productId, width, height, price, stampColor.getRgb());
+        super(productId, width, height, price, stampColor.getColor());
 
         this.text = text;
     }
