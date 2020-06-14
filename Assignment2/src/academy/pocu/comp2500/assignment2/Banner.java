@@ -1,6 +1,6 @@
 package academy.pocu.comp2500.assignment2;
 
-public class Banner extends Product {
+public class Banner extends ApertureProduct {
 
     public Banner(int productId, int width, int height, int color, Orientation orientation, ShippingMethod shippingMethod) {
         super(productId, width, height, color, orientation, shippingMethod);

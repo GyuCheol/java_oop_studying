@@ -53,19 +53,19 @@ public class Program {
             assert banner.getPrice() == 10;
 
             ImageElement imageElement = new ImageElement(1, "asd", 5, 5);
-            banner.addImageElement(imageElement);
+            banner.addElement(imageElement);
 
             assert cart.getTotalPrice() == 15;
             assert banner.getPrice() == 15;
 
-            banner.addImageElement(imageElement);
-            banner.addImageElement(imageElement);
+            banner.addElement(imageElement);
+            banner.addElement(imageElement);
 
             assert cart.getTotalPrice() == 15;
             assert banner.getPrice() == 15;
 
-            banner.removeImageElement(imageElement);
-            banner.removeImageElement(imageElement);
+            banner.removeElement(imageElement);
+            banner.removeElement(imageElement);
 
             assert cart.getTotalPrice() == 10;
             assert banner.getPrice() == 10;
