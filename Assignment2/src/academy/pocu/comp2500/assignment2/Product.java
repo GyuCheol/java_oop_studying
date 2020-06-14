@@ -4,11 +4,13 @@ public class Product {
     private int productId;
     private int width;
     private int height;
+    private String displayName;
     private ShippingMethod shippingMethod;
     protected int price;
     protected int color;
 
-    protected Product(int productId, int width, int height, int price, int color, ShippingMethod shippingMethod) {
+    protected Product(int productId, String displayName, int width, int height, int price, int color, ShippingMethod shippingMethod) {
+        this.displayName = displayName;
         this.productId = productId;
         this.width = width;
         this.height = height;

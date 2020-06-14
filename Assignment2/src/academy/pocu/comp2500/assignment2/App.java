@@ -4,20 +4,20 @@ import academy.pocu.comp2500.assignment2.registry.Registry;
 
 public class App {
     public App(Registry registry) {
-        registry.registerRedStampCreator("RedStamp");
-        registry.registerBlueStampCreator("BlueStamp");
-        registry.registerGreenStampCreator("GreenStamp");
+        registry.registerRedStampCreator("Stamp");
+        registry.registerBlueStampCreator("Stamp");
+        registry.registerGreenStampCreator("Stamp");
 
-        registry.registerWallCalendarCreator("WallCalendar");
-        registry.registerMagnetCalendarCreator("MagnetCalendar");
-        registry.registerDeskCalendarCreator("DeskCalendar");
+        registry.registerWallCalendarCreator("Calendar");
+        registry.registerMagnetCalendarCreator("Calendar");
+        registry.registerDeskCalendarCreator("Calendar");
 
         registry.registerLandscapeBannerCreator("Banner");
         registry.registerPortraitBannerCreator("Banner");
 
-        registry.registerGlossBannerCreator("GlossBanner");
-        registry.registerScrimBannerCreator("ScrimBanner");
-        registry.registerMeshBannerCreator("MeshBanner");
+        registry.registerGlossBannerCreator("Banner");
+        registry.registerScrimBannerCreator("Banner");
+        registry.registerMeshBannerCreator("Banner");
 
         registry.registerLandscapeBusinessCardCreator("BusinessCard");
         registry.registerPortraitBusinessCardCreator("BusinessCard");
@@ -25,9 +25,9 @@ public class App {
         registry.registerGrayBusinessCardCreator("BusinessCard");
         registry.registerWhiteBusinessCardCreator("BusinessCard");
 
-        registry.registerLaidBusinessCardCreator("LaidBusinessCard");
-        registry.registerLinenBusinessCardCreator("LinenBusinessCard");
-        registry.registerSmoothBusinessCardCreator("SmoothBusinessCard");
+        registry.registerLaidBusinessCardCreator("BusinessCard");
+        registry.registerLinenBusinessCardCreator("BusinessCard");
+        registry.registerSmoothBusinessCardCreator("BusinessCard");
 
         registry.registerSingleSidedBusinessCardCreator("BusinessCard");
         registry.registerDoubleSidedBusinessCardCreator("BusinessCard");

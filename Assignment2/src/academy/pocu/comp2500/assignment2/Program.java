@@ -14,7 +14,7 @@ public class Program {
 
         // Task #1
         {
-            RedStamp redStamp = new RedStamp(1, "hello", 4, 3, 1000, ShippingMethod.SHIP);
+            Stamp redStamp = new Stamp(1, "Red", "hello", 4, 3, 1000, StampColor.RED, ShippingMethod.SHIP);
 
             assert redStamp.getColor() == 0xFF0000;
             assert redStamp.getPrice() == 1000;
@@ -23,7 +23,7 @@ public class Program {
         // Task #2
         {
             Cart cart = new Cart();
-            RedStamp redStamp = new RedStamp(1, "hello", 4, 3, 1000, ShippingMethod.SHIP);
+            Stamp redStamp = new Stamp(1, "RED","hello", 4, 3, 1000, StampColor.RED, ShippingMethod.SHIP);
             cart.addCartItem(redStamp);
             cart.addCartItem(redStamp);
             cart.addCartItem(redStamp);
@@ -39,7 +39,7 @@ public class Program {
             assert cart.getCartItems().size() == 0;
             assert cart.getTotalPrice() == 0;
 
-            Banner banner = new Banner(2, 10, 10, 10, 0xFF0000, Orientation.PORTRAIT, ShippingMethod.SHIP);
+            Banner banner = new Banner(2, "Banner",10, 10, 10, 0xFF0000, Orientation.PORTRAIT, ShippingMethod.SHIP);
 
             cart.addCartItem(banner);
 
@@ -68,7 +68,7 @@ public class Program {
 
         // Task #3
         {
-            WallCalendar wallCalendar = new WallCalendar(1, ShippingMethod.SHIP);
+            Calendar wallCalendar = new Calendar(1, "Wall", 40, 40, 1000, 0xFFFFFF, ShippingMethod.SHIP);
 
             assert wallCalendar.getPrice() == 1000;
             assert wallCalendar.getWidth() == 40 && wallCalendar.getHeight() == 40;
