@@ -2,104 +2,85 @@ package academy.pocu.comp2500.lab6;
 
 import java.util.ArrayList;
 
-public class SetMenu {
+public class SetMenu extends Menu {
 
-    private int price;
-    private int maxAppetizerCount;
     private int maxDessertCount;
+    private int maxAppetizerCount;
     private int maxMainCourseCount;
 
-    protected ArrayList<Dessert> desserts = new ArrayList<>();
-    protected ArrayList<Appetizer> appetizers = new ArrayList<>();
-    protected ArrayList<MainCourse> mainCourses = new ArrayList<>();
+    private ArrayList<Appetizer> appetizers = new ArrayList<>();
+    private ArrayList<Dessert> desserts = new ArrayList<>();
+    private ArrayList<MainCourse> mainCourses = new ArrayList<>();
 
-    public SetMenu(int price, int maxAppetizerCount, int maxDessertCount, int maxMainCourseCount) {
-        this.price = price;
+    public SetMenu(int price, int maxDessertCount, int maxAppetizerCount, int maxMainCourseCount) {
+        super(price);
+
+        this.maxMainCourseCount = maxMainCourseCount;
         this.maxAppetizerCount = maxAppetizerCount;
         this.maxDessertCount = maxDessertCount;
-        this.maxMainCourseCount = maxMainCourseCount;
     }
 
-    public int getPrice() {
-        return this.price;
+    protected void updateValid() {
+        this.isValid = this.maxDessertCount == this.desserts.size() &&
+                this.maxAppetizerCount == this.appetizers.size() &&
+                this.maxMainCourseCount == this.mainCourses.size();
     }
 
-    public boolean isValid() {
-        return this.desserts.size() == this.maxDessertCount &&
-                this.appetizers.size() == this.maxAppetizerCount &&
-                this.mainCourses.size() == this.maxMainCourseCount;
-    }
+    protected void setDessertParams(Dessert... desserts) {
+        this.desserts.clear();
 
-    public Dessert getDessert() {
-        if (desserts.size() > 0) {
-            return desserts.get(0);
+        for (Dessert d : desserts) {
+            this.desserts.add(d);
         }
 
-        return null;
+        updateValid();
     }
 
-    public ArrayList<Dessert> getDesserts() {
-        return desserts;
-    }
+    protected void setAppetizerParams(Appetizer... appetizers) {
+        this.appetizers.clear();
 
-    public void setDessert(Dessert dessert) {
-        setDesserts(dessert);
-    }
-
-    public void setDesserts(Dessert... dessert) {
-        desserts.clear();
-
-        for (Dessert d : dessert) {
-            desserts.add(d);
+        for (Appetizer a : appetizers) {
+            this.appetizers.add(a);
         }
+
+        updateValid();
+    }
+
+    protected void setMainCourseParams(MainCourse... mainCourses) {
+        this.mainCourses.clear();
+
+        for (MainCourse m : mainCourses) {
+            this.mainCourses.add(m);
+        }
+
+        updateValid();
     }
 
     public Appetizer getAppetizer() {
-        if (appetizers.size() > 0) {
-            return appetizers.get(0);
-        }
-
-        return null;
-    }
-
-    public ArrayList<Appetizer> getAppetizers() {
-        return appetizers;
-    }
-
-    public void setAppetizer(Appetizer appetizer) {
-        setAppetizers(appetizer);
-    }
-
-    public void setAppetizers(Appetizer... appetizer) {
-        appetizers.clear();
-
-        for (Appetizer a : appetizer) {
-            appetizers.add(a);
-        }
+        assert (this.appetizers.size() > 0) : "call isValid() first!";
+        return this.appetizers.get(0);
     }
 
     public MainCourse getMainCourse() {
-        if (mainCourses.size() > 0) {
-            return mainCourses.get(0);
-        }
+        assert (this.mainCourses.size() > 0) : "call isValid() first!";
+        return this.mainCourses.get(0);
+    }
 
-        return null;
+    public Dessert getDessert() {
+        assert (this.desserts.size() > 0) : "call isValid() first!";
+        return this.desserts.get(0);
+    }
+
+    public ArrayList<Appetizer> getAppetizers() {
+        return this.appetizers;
+    }
+
+    public ArrayList<Dessert> getDesserts() {
+        return this.desserts;
     }
 
     public ArrayList<MainCourse> getMainCourses() {
-        return mainCourses;
-    }
-
-    public void setMainCourse(MainCourse mainCourse) {
-        setMainCourses(mainCourse);
-    }
-
-    public void setMainCourses(MainCourse... mainCourse) {
-        mainCourses.clear();
-
-        for (MainCourse m : mainCourse) {
-            mainCourses.add(m);
-        }
+        return this.mainCourses;
     }
 
 }

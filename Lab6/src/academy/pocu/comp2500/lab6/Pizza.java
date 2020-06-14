@@ -2,9 +2,8 @@ package academy.pocu.comp2500.lab6;
 
 import java.util.ArrayList;
 
-public class Pizza {
+public class Pizza extends Menu {
 
-    private int price;
     private int maxMeatCount;
     private int maxCheeseCount;
     private int maxVeggieCount;
@@ -14,27 +13,24 @@ public class Pizza {
     protected ArrayList<Topping> toppings = new ArrayList<>();
 
     public Pizza(int price, int maxMeatCount, int maxCheeseCount, int maxVeggieCount) {
-        this.price = price;
+        super(price);
         this.maxMeatCount = maxMeatCount;
         this.maxCheeseCount = maxCheeseCount;
         this.maxVeggieCount = maxVeggieCount;
     }
 
-    public boolean isValid() {
-        return this.meatCount == this.maxMeatCount &&
+    private void updateValid() {
+        this.isValid = this.meatCount == this.maxMeatCount &&
                 this.cheeseCount == this.maxCheeseCount &&
                 this.veggieCount == this.maxVeggieCount;
     }
 
-    public int getPrice() {
-        return this.price;
-    }
 
     public ArrayList<Topping> getToppings() {
         return this.toppings;
     }
 
-    public boolean addTopping(Topping topping) {
+    protected boolean addTopping(Topping topping) {
         if ((isMeat(topping) && this.meatCount >= maxMeatCount)
                 || (isVeggie(topping) && this.veggieCount >= maxVeggieCount)
                 || (isCheese(topping) && this.cheeseCount >= this.maxCheeseCount)) {
@@ -55,10 +51,12 @@ public class Pizza {
             ++this.cheeseCount;
         }
 
+        updateValid();
+
         return true;
     }
 
-    public boolean removeTopping(Topping topping) {
+    protected boolean removeTopping(Topping topping) {
         boolean isRemoved = this.toppings.remove(topping);
 
         if (isRemoved) {
@@ -74,6 +72,8 @@ public class Pizza {
                 --this.cheeseCount;
             }
         }
+
+        updateValid();
 
         return isRemoved;
     }
