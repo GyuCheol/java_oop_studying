@@ -56,21 +56,6 @@ public class SetMenu extends Menu {
         updateValid();
     }
 
-    public Appetizer getAppetizer() {
-        assert (this.appetizers.size() > 0) : "call isValid() first!";
-        return this.appetizers.get(0);
-    }
-
-    public MainCourse getMainCourse() {
-        assert (this.mainCourses.size() > 0) : "call isValid() first!";
-        return this.mainCourses.get(0);
-    }
-
-    public Dessert getDessert() {
-        assert (this.desserts.size() > 0) : "call isValid() first!";
-        return this.desserts.get(0);
-    }
-
     public ArrayList<Appetizer> getAppetizers() {
         return this.appetizers;
     }
