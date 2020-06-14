@@ -39,7 +39,7 @@ public class Program {
             assert cart.getCartItems().size() == 0;
             assert cart.getTotalPrice() == 0;
 
-            Banner banner = Banner.createBanner(2, 10, 10, 10, 0xFF0000, Orientation.PORTRAIT, ShippingMethod.SHIP);
+            Banner banner = new Banner(2, 10, 10, 10, 0xFF0000, Orientation.PORTRAIT, ShippingMethod.SHIP);
 
             cart.addCartItem(banner);
 

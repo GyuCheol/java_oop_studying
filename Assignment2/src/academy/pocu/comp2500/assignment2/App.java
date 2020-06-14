@@ -12,25 +12,25 @@ public class App {
         registry.registerMagnetCalendarCreator("MagnetCalendar");
         registry.registerDeskCalendarCreator("DeskCalendar");
 
-        registry.registerLandscapeBannerCreator("Banner", "createBanner");
-        registry.registerPortraitBannerCreator("Banner", "createBanner");
+        registry.registerLandscapeBannerCreator("Banner");
+        registry.registerPortraitBannerCreator("Banner");
 
         registry.registerGlossBannerCreator("GlossBanner");
         registry.registerScrimBannerCreator("ScrimBanner");
         registry.registerMeshBannerCreator("MeshBanner");
 
-        registry.registerLandscapeBusinessCardCreator("BusinessCard", "createBusinessCard");
-        registry.registerPortraitBusinessCardCreator("BusinessCard", "createBusinessCard");
-        registry.registerIvoryBusinessCardCreator("BusinessCard", "createBusinessCard");
-        registry.registerGrayBusinessCardCreator("BusinessCard", "createBusinessCard");
-        registry.registerWhiteBusinessCardCreator("BusinessCard", "createBusinessCard");
+        registry.registerLandscapeBusinessCardCreator("BusinessCard");
+        registry.registerPortraitBusinessCardCreator("BusinessCard");
+        registry.registerIvoryBusinessCardCreator("BusinessCard");
+        registry.registerGrayBusinessCardCreator("BusinessCard");
+        registry.registerWhiteBusinessCardCreator("BusinessCard");
 
         registry.registerLaidBusinessCardCreator("LaidBusinessCard");
         registry.registerLinenBusinessCardCreator("LinenBusinessCard");
         registry.registerSmoothBusinessCardCreator("SmoothBusinessCard");
 
-        registry.registerSingleSidedBusinessCardCreator("BusinessCard", "createBusinessCard");
-        registry.registerDoubleSidedBusinessCardCreator("BusinessCard", "createBusinessCard");
+        registry.registerSingleSidedBusinessCardCreator("BusinessCard");
+        registry.registerDoubleSidedBusinessCardCreator("BusinessCard");
 
         registry.registerCartCreator("Cart");
         registry.registerProductAdder("Cart", "addCartItem");

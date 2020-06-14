@@ -4,7 +4,7 @@ public class ImageElement extends Element {
 
     private String imagePath;
 
-    protected ImageElement(int elementId, String imagePath, int x, int y) {
+    public ImageElement(int elementId, String imagePath, int x, int y) {
         super(elementId, x, y);
 
         this.imagePath = imagePath;

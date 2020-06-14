@@ -4,7 +4,7 @@ public class TextElement extends Element {
 
     private String text;
 
-    protected TextElement(int elementId, String text, int x, int y) {
+    public TextElement(int elementId, String text, int x, int y) {
         super(elementId, x, y);
 
         this.text = text;
