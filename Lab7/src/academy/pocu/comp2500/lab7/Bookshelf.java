@@ -14,6 +14,10 @@ public class Bookshelf {
 
     public boolean add(Book book) {
 
+        if (bookList.size() == maximumBookCount) {
+            return false;
+        }
+
         if (bookList == null) {
             return false;
         }
