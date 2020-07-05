@@ -37,6 +37,8 @@ public class Program {
         assert (readingList.add(book2));
         assert (readingList.add(book3));
 
+        System.out.println(readingList.toString());
+
         assert (readingList.remove(book3));
         assert (readingList.remove(book0));
         assert (!readingList.remove(book0));

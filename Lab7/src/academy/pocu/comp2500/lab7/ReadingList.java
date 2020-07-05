@@ -51,10 +51,13 @@ public class ReadingList {
             sb.append('.');
             sb.append(' ');
             sb.append(b.toString());
-            sb.append('\n');
+            sb.append(System.lineSeparator());
 
             ++id;
         }
+        
+        // 끝자리 줄바꿈 제거
+        sb.setLength(sb.length() - System.lineSeparator().length());
 
         return sb.toString();
     }
